@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <% if(isAmp) { %>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <% } %>
+    <title>
+      <%= article.title %>
+    </title>
+    <% if(isAmp) { %>
+    <link rel="canonical" href="https://www.rntricks.com<%= article.url %>" />
+    <% } else { %>
+    <link rel="amphtml" href="https://www.rntricks.com<%= article.url %>/amp" />
+    <% }%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+    <meta name="author" content="rntricks.com" />
+    <meta name="description" content="<%= article.subtitle || (article.body[0].innerText + ' ' + article.body[1].innerText + '...')  %>" />
+    <meta name="author" content="rntricks.com" />
+    <meta name="theme-color" content="<%= article.color %>" />
+    <meta property="og:url" content="<%= article.ogUrl || 'https://ow.ly/'  %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= article.title %>" />
+    <meta property="og:description" content="<%= article.subtitle || (article.body[0].innerText + ' ' + article.body[1].innerText + '...')  %>" />
+    <meta property="og:image" content="https://www.rntricks.com<%= article.coverImageUrl %>" />
+    <% if(isAmp) { %> <%- include partials/amp-resources.ejs %> <%- include('partials/jsonld', { article }) %> <% } else { %> <%- include partials/resources.ejs
+    %> <%- include('partials/jsonld', { article }) %> <% }%>
+  </head>
+
+  <body>
+    <%- include('partials/header', { selectedPage: article.type, isAmp }) %>
+
+    <div class="article">
+      <div class="article-header">
+        <h1 class="article-title">
+          <%= article.title %>
+        </h1>
+      </div>
+
+      <h4 class="article-subtitle">
+        <%= article.subtitle %>
+      </h4>
+
+      <div>
+        <a class="article-type" style="background-color: <%= article.color %>;" href="#"><%= article.type %> </a>
+        <span class="article-date">
+          <%= moment(article.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %>
+        </span>
+      </div>
+      <div class="article-cover">
+        <% if(!isAmp) { %>
+        <picture>
+          <source srcset="<%= article.coverImageUrl.replace('.jpg', '.webp') %>" type="image/webp" />
+          <source srcset="<%= article.coverImageUrl %>" type="image/jpeg" />
+          <img src="<%= article.coverImageUrl %>" alt="Article Cover Photo" />
+        </picture>
+        <% } else { %>
+        <amp-img layout="responsive" src="<%= article.coverImageUrl.replace('.jpg', '.webp') %>" alt="Welcome" height="420" width="700"></amp-img>
+        <% }%>
+      </div>
+
+      <div class="article-body">
+        <%- article.body.map(block => mapBlockToHtml(block, article.url)).join('') %>
+      </div>
+    </div>
+
+    <%- include('partials/footer', { dataHref: `https://www.rntricks.com${article.url}`, href:
+    `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.rntricks.com${article.url}%2F&amp;src=sdkpreparse`, type: 'article' }) %>
+  </body>
+</html>

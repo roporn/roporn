@@ -1,0 +1,15 @@
+module.exports = {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: '?v=2',
+  query: 'v=2',
+  pathname: '/article/7-tips-for-maximizing-efficiency-when-writing-react-native-apps',
+  path: '/article/7-tips-for-maximizing-efficiency-when-writing-react-native-apps?v=2',
+  href: '/article/7-tips-for-maximizing-efficiency-when-writing-react-native-apps?v=2',
+  _raw: '/article/7-tips-for-maximizing-efficiency-when-writing-react-native-apps?v=2',
+};

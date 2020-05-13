@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include partials/index-metaheaders.ejs %>
+    <%- include partials/resources.ejs %>
+  </head>
+  <body>
+    <%- include('partials/header', { selectedPage: categoryName }) %>
+
+    <!-- section -->
+    <div class="section">
+      <!-- container -->
+      <div class="container">
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-title">
+              <h2 class="featured-articles-title"><%= categoryName %></h2>
+            </div>
+          </div>
+
+          <!-- post -->
+          <% articles.sort((a,b) => +moment(b.date, 'DD/MM/YYYY') - +moment(a.date, 'DD/MM/YYYY')).map((article) => { %>
+          <div class="col-md-6">
+            <div class="post post-thumb">
+              <a class="post-img" href="<%= article.url %>">
+                <picture>
+                  <source srcset="<%= article.coverImageUrl.replace('.jpg', '.webp') %>" type="image/webp" />
+                  <source srcset="<%= article.coverImageUrl %>" type="image/jpeg" />
+                  <img src="<%= article.coverImageUrl %>" alt="Article Cover Photo" />
+                </picture>
+              </a>
+              <div class="post-body">
+                <div class="post-meta">
+                  <a class="post-category cat-2" style="background-color: <%= article.color %>;" href="#"><%= article.type %></a>
+                  <span class="post-date"><%= moment(article.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %></span>
+                </div>
+                <h3 class="post-title">
+                  <a href="<%= article.url %>">
+                    <%= article.title %>
+                  </a>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+
+    <%- include('partials/footer', { dataHref: `https://www.rntricks.com/`, href:
+    `https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.rntricks.com%2F&amp;src=sdkpreparse`, type: 'index' }) %>
+  </body>
+</html>

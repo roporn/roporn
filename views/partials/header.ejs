@@ -1,0 +1,54 @@
+<header id="header">
+  <!-- Nav -->
+  <div id="nav">
+    <!-- Main Nav -->
+    <div id="nav-fixed">
+      <div class="container top-container">
+        <div class="left-container">
+          <div class="nav-logo" style="display: flex; align-items: center;">
+            <a href="/" class="logo">
+              <%- locals.isAmp ? '<amp-img layout="fixed" height="40" width="40"  src="/img/logo.png" alt="ROPORN logo" />' : '<img src="/img/logo.png" alt="ROPORN logo" />' %>
+            </a>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="/" class="<%= selectedPage == 'Home' ? 'selected' : '' %>">Home</a></li>
+            <li class="cat-1"><a href="/category/articles" class="<%= selectedPage == 'Articles' ? 'selected' : '' %>">Articles</a></li>
+            <li class="cat-2"><a href="/category/tips-n-tricks" class="<%= selectedPage == 'Tips & Tricks' ? 'selected' : '' %>">Tips & Tricks</a></li>
+            <li class="cat-3"><a href="/category/answers" class="<%= selectedPage == 'Answer' ? 'selected' : '' %>">Answers</a></li>
+            <li class="cat-4"><a href="/category/tutorials" class="<%= selectedPage == 'Tutorial' ? 'selected' : '' %>">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <!-- search & aside toggle -->
+        <div class="nav-btns">
+          <!-- <button class="aside-btn"><i class="fa fa-bars"></i></button> -->
+          <a aria-label="Search" href="<%= locals.isAmp ? '/search' : '#' %>" class="search-btn"><i class="fa fa-search"></i></a>
+          <div class="search-form <%= locals.inSearch ? 'active' : '' %>">
+            <input
+              autofocus
+              class="search-input"
+              type="text"
+              placeholder="Find article..."
+              <% if(locals.inSearch || !locals.isAmp) { %>
+                onkeyup="event.keyCode == 13 && (window.location.href = '/search?q=' + this.value)"
+              <% } %>
+              name="search"
+              value="<%= locals.query || '' %>"
+            />
+            <button class="search-close"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /search & aside toggle -->
+      </div>
+    </div>
+  </div>
+  <% if(!locals.isAmp) { %>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=306856700168414&autoLogAppEvents=1"
+    ></script>
+  <% } %>
+</header>
