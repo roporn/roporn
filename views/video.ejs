@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <% if(isAmp) { %>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <% } %>
+    <title>
+      <%= video.title %>
+    </title>
+    <% if(isAmp) { %>
+    <link rel="canonical" href="https://www.rntricks.com<%= video.url %>" />
+    <% } else { %>
+    <link rel="amphtml" href="https://www.rntricks.com<%= video.url %>/amp" />
+    <% }%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+    <meta name="author" content="rntricks.com" />
+    <meta name="description" content="<%= video.subtitle || (video.body[0].innerText + ' ' + video.body[1].innerText + '...')  %>" />
+    <meta name="author" content="rntricks.com" />
+    <meta name="theme-color" content="<%= video.color %>" />
+    <meta property="og:url" content="<%= video.ogUrl || 'https://ow.ly/'  %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= video.title %>" />
+    <meta property="og:description" content="<%= video.subtitle || (video.body[0].innerText + ' ' + video.body[1].innerText + '...')  %>" />
+    <meta property="og:image" content="https://www.rntricks.com<%= video.thumbnailUrl %>" />
+    <% if(isAmp) { %> <%- include partials/amp-resources.ejs %> <%- include('partials/jsonld', { video }) %> <% } else { %> <%- include partials/resources.ejs
+    %> <%- include('partials/jsonld', { video }) %> <% }%>
+  </head>
+
+  <body>
+    <%- include('partials/header', { selectedPage: video.type, isAmp }) %>
+
+    <div class="video">
+      <div class="video-header">
+        <h1 class="video-title">
+          <%= video.title %>
+        </h1>
+      </div>
+
+      <h4 class="video-subtitle">
+        <%= video.subtitle %>
+      </h4>
+
+      <div>
+        <a class="video-type" style="background-color: <%= video.color %>;" href="#"><%= video.type %> </a>
+        <span class="video-date">
+          <%= moment(video.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %>
+        </span>
+      </div>
+      <div class="video-cover">
+        <% if(!isAmp) { %>
+        <img src="<%= video.thumbnailUrl %>" alt="Article Cover Photo" />
+        <% } else { %>
+        <amp-img layout="responsive" src="<%= video.thumbnailUrl %>" alt="Welcome" height="420" width="700"></amp-img>
+        <% }%>
+      </div>
+
+      <div class="video-body">
+        <%- video.body.map(block => mapBlockToHtml(block, video.url)).join('') %>
+      </div>
+    </div>
+
+    <%- include('partials/footer', { dataHref: `https://www.rntricks.com${video.url}`, href:
+    `https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.rntricks.com${video.url}%2F&amp;src=sdkpreparse`, type: 'video' }) %>
+  </body>
+</html>

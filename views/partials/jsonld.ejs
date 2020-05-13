@@ -4,12 +4,12 @@
     "@type": "NewsArticle",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://www.rntricks.com<%= article.url %>"
+      "@id": "https://www.rntricks.com<%= video.url %>"
     },
-    "headline": "<%= article.title %>",
-    "image": ["https://www.rntricks.com<%= article.coverImageUrl %>"],
-    "datePublished": "<%= article.datePublishedJsonLd %>",
-    "dateModified": "<%= article.datePublishedJsonLd %>",
+    "headline": "<%= video.title %>",
+    "image": ["https://www.rntricks.com<%= video.thumbnailUrl %>"],
+    "datePublished": "<%= video.datePublishedJsonLd %>",
+    "dateModified": "<%= video.datePublishedJsonLd %>",
     "author": { "@type": "Organization", "name": "ROPORN" },
     "publisher": {
       "@type": "Organization",
@@ -17,6 +17,6 @@
       "url": "https://www.rntricks.com/",
       "logo": { "@type": "ImageObject", "url": "https://www.rntricks.com/img/logo.png" }
     },
-    "description": "<%= article.subtitle || (article.body[0].innerText + article.body[1].innerText) %>"
+    "description": "<%= video.subtitle || (video.body[0].innerText + video.body[1].innerText) %>"
   }
 </script>

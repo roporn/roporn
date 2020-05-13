@@ -309,6 +309,7 @@
     display: block;
     -webkit-transition: 0.2s opacity;
     transition: 0.2s opacity;
+    width: 400px;
   }
   .post .post-img:hover,
   .post .post-img:focus {
@@ -349,7 +350,7 @@
   .post-meta .post-category.cat-4 {
     background-color: #0078ff;
   }
-  .post-meta .post-date {
+  .post-meta .video-length {
     font-size: 13px;
     font-weight: 600;
   }
@@ -393,7 +394,7 @@
     bottom: 0px;
     padding: 20px 15px;
   }
-  .post.post-thumb .post-meta .post-date {
+  .post.post-thumb .post-meta .video-length {
     color: #eceef2;
   }
   .post.post-thumb .post-title {
@@ -460,7 +461,7 @@
   }
 
   .post-title a {
-    text-transform: capitalize;
+    text-transform: lowercase;
   }
 
   .index-wrapper {
@@ -476,54 +477,54 @@
     margin-bottom: 25px;
   }
 
-  .featured-articles,
-  .recent-articles {
+  .featured-videos,
+  .recent-videos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  .featured-article {
+  .featured-video {
     width: calc(50% - 30px);
     height: calc(50% - 80px);
   }
 
-  .recent-article {
+  .recent-video {
     width: calc(33% - 28px);
     height: calc(33% - 26px);
   }
 
-  .featured-articles-title {
+  .featured-videos-title {
     margin-top: 0;
   }
 
-  .article h2 {
+  .video h2 {
     text-transform: capitalize;
   }
 
-  .article {
+  .video {
     width: 700px;
     margin-top: 25px;
     max-width: calc(100vw - 30px);
   }
 
-  .article-header {
+  .video-header {
     display: flex;
     align-items: center;
     margin-bottom: -20px;
   }
 
-  .article-title {
+  .video-title {
     margin: 0;
     font-weight: 500;
   }
 
-  .article-header img {
+  .video-header img {
     width: 62px;
     margin-right: 27px;
   }
 
-  .article-subtitle {
+  .video-subtitle {
     color: #0000006a;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -532,33 +533,33 @@
     margin-top: 25px;
   }
 
-  .article-cover {
+  .video-cover {
     margin-top: 10px;
     width: 100%;
   }
 
-  .article-date {
+  .video-date {
     color: #00000066;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     font-size: 12px;
   }
 
-  .article-date span {
+  .video-date span {
     font-weight: 500;
     padding: 0 10px;
     font-size: 12px;
   }
 
-  .article-body {
+  .video-body {
     margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .article-body p,
-  .article-body a {
+  .video-body p,
+  .video-body a {
     font-size: 19px;
     font-family: 'Merriweather', serif;
     font-weight: 400;
@@ -598,43 +599,43 @@
   }
 
   @media (max-width: 500px) {
-    .article {
+    .video {
       margin-top: 0;
     }
 
-    .article-title {
+    .video-title {
       font-size: 22px;
     }
-    .article-subtitle {
+    .video-subtitle {
       font-size: 16px;
       margin-top: 26px;
     }
     h2 {
       font-size: 21px;
     }
-    .article-body p {
+    .video-body p {
       font-size: 16px;
       line-height: 32px;
     }
-    .article-body a {
+    .video-body a {
       font-size: 16px;
       line-height: 32px;
     }
-    .article-body code {
+    .video-body code {
       font-size: 16px;
       line-height: 32px;
     }
-    .article-body pre {
+    .video-body pre {
       font-size: 16px;
       line-height: 32px;
     }
 
-    .article-header img {
+    .video-header img {
       width: 69px;
     }
   }
 
-  .latest-article {
+  .latest-video {
     border: 1px solid #30394722;
     display: flex;
     position: relative;
@@ -642,7 +643,7 @@
     padding: 8px;
   }
 
-  .latest-article .img-wrapper {
+  .latest-video .img-wrapper {
     width: 200px;
     height: 200px;
     overflow: hidden;
@@ -650,36 +651,36 @@
     margin-right: 8px;
   }
 
-  .latest-article img {
+  .latest-video img {
     height: 200px;
   }
 
-  .latest-article .text-wrapper {
+  .latest-video .text-wrapper {
     padding: 0 8px;
     position: relative;
   }
 
-  .latest-article h2 {
+  .latest-video h2 {
     margin: 0px;
   }
-  .latest-article p {
+  .latest-video p {
     margin: 0px;
     margin-top: 8px;
     height: 100px;
     line-height: 28px;
   }
 
-  .go-to-article {
+  .go-to-video {
     position: absolute;
     bottom: 4px;
     right: 8px;
   }
 
-  .latest-article-date {
+  .latest-video-date {
     color: #0000008a;
   }
 
-  .latest-article-wrapper {
+  .latest-video-wrapper {
     margin-top: 50px;
   }
 
@@ -692,7 +693,7 @@
     max-width: 100%;
   }
 
-  .article-type {
+  .video-type {
     font-size: 13px;
     text-transform: uppercase;
     padding: 3px 10px;
@@ -717,12 +718,12 @@
     background-color: #b0d0d338;
   }
 
-  .article-body a {
+  .video-body a {
     word-break: break-all;
     color: #0078ff;
   }
 
-  .article-body p a {
+  .video-body p a {
     word-break: unset;
   }
 
@@ -750,7 +751,7 @@
     .brand-text {
       margin-right: -30px;
     }
-    .featured-articles-title {
+    .featured-videos-title {
       margin-top: -20px;
     }
     pre {
@@ -761,12 +762,12 @@
     .nav-btns .search-form {
       max-width: calc(100vw - 30px);
     }
-    .featured-article {
+    .featured-video {
       width: 100%;
       height: auto;
     }
 
-    .recent-article {
+    .recent-video {
       width: 100%;
       height: auto;
     }

@@ -15,29 +15,24 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-title">
-              <h2 class="featured-articles-title"><%= categoryName %></h2>
+              <h2 class="featured-videos-title"><%= categoryName %></h2>
             </div>
           </div>
 
           <!-- post -->
-          <% articles.sort((a,b) => +moment(b.date, 'DD/MM/YYYY') - +moment(a.date, 'DD/MM/YYYY')).map((article) => { %>
+          <% videos.sort((a,b) => +moment(b.date, 'DD/MM/YYYY') - +moment(a.date, 'DD/MM/YYYY')).map((video) => { %>
           <div class="col-md-6">
             <div class="post post-thumb">
-              <a class="post-img" href="<%= article.url %>">
-                <picture>
-                  <source srcset="<%= article.coverImageUrl.replace('.jpg', '.webp') %>" type="image/webp" />
-                  <source srcset="<%= article.coverImageUrl %>" type="image/jpeg" />
-                  <img src="<%= article.coverImageUrl %>" alt="Article Cover Photo" />
-                </picture>
+              <a class="post-img" href="<%= video.url %>">
+                <img src="<%= video.thumbnailUrl %>" alt="Article Cover Photo" />
               </a>
               <div class="post-body">
                 <div class="post-meta">
-                  <a class="post-category cat-2" style="background-color: <%= article.color %>;" href="#"><%= article.type %></a>
-                  <span class="post-date"><%= moment(article.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %></span>
+                  <span class="video-length"><%= moment(video.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %></span>
                 </div>
                 <h3 class="post-title">
-                  <a href="<%= article.url %>">
-                    <%= article.title %>
+                  <a href="<%= video.url %>">
+                    <%= video.title %>
                   </a>
                 </h3>
               </div>
