@@ -512,18 +512,18 @@
   }
 
   .video-wrapper .gradient {
-    display: none;
-  }
-
-  .video-wrapper:hover .gradient {
-    display: block;
     position: absolute;
     left: 0;
     bottom: 0;
     height: 80px;
     width: 430px;
-    z-index: 0;
+    z-index: 6;
     background: linear-gradient(to top, rgba(33, 38, 49, 0.3) 50%, transparent 100%);
+    display: none;
+  }
+
+  .video-wrapper:hover .gradient {
+    display: block;
   }
 
   .video-wrapper:hover .video-info {
@@ -556,7 +556,7 @@
     margin: auto;
   }
   .video-wrapper img:nth-of-type(1) {
-    z-index: 1;
+    z-index: 5;
   }
 
   /* .video-wrapper:hover img {
@@ -570,7 +570,7 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
   }
-  
+
   .video-wrapper:hover img:nth-of-type(3) {
     animation: bring-to-top;
     animation-delay: 1s;
@@ -594,7 +594,7 @@
 
   @keyframes bring-to-top {
     to {
-      z-index: 2;
+      z-index: 5;
     }
   }
 
@@ -605,7 +605,7 @@
     z-index: 1;
     width: 300px;
     display: none;
-    z-index: 3;
+    z-index: 7;
   }
 
   .video .duration {
