@@ -30,8 +30,8 @@ app.use((req, _, next) => {
 });
 
 app.use('/', require('./routes/index-router'));
-// app.use('/video', require('./routes/video-router'));
-// app.use('/search', require('./routes/search-router'));
+app.use('/video', require('./routes/video-router'));
+app.use('/search', require('./routes/search-router'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

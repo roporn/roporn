@@ -6,46 +6,20 @@
   <body>
     <%- include('partials/header', { selectedPage: 'None', inSearch: true }) %>
 
-    <!-- section -->
-    <div class="section">
-      <!-- container -->
-      <div class="container">
-        <!-- row -->
-        <div class="row"></div>
-          <div class="col-md-12">
-            <div class="section-title">
-              <h2 class="featured-videos-title">Found videos:</h2>
-            </div>
+    <div class="videos">
+      <% videos.map(({name, url}, i) => { %>
+      <a href="<%= url %>" class="video">
+        <div class="video-wrapper">
+          <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/1.jpg' %>" alt="Article Cover Photo" />
+          <div class="video-info">
+            <span class="duration">03:14</span>
+            <span class="title"><%= name %></span>
           </div>
-
-          <!-- post -->
-          <% videos.sort((a,b) => +moment(b.date, 'DD/MM/YYYY') - +moment(a.date, 'DD/MM/YYYY')).map((video) => { %>
-          <div class="col-md-6">
-            <div class="post post-thumb">
-              <a class="post-img" href="<%= video.url %>">
-                  <img src="<%= video.thumbnailUrl %>" alt="Article Cover Photo" />
-              </a>
-              <div class="post-body">
-                <div class="post-meta">
-                  <span class="video-length"><%= moment(video.date, 'DD/MM/YYYY').format('MMMM DD, YYYY') %></span>
-                </div>
-                <h3 class="post-title">
-                  <a href="<%= video.url %>">
-                    <%= video.title %>
-                  </a>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <% }) %>
+          <div class="gradient"></div>
         </div>
-        <!-- /row -->
-      </div>
-      <!-- /container -->
+      </a>
+      <% }) %>
     </div>
-    <!-- /section -->
-
-    <%- include('partials/footer', { dataHref: `https://www.rntricks.com/`, href:
-    `https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.rntricks.com%2F&amp;src=sdkpreparse`, type: 'index' }) %>
+    <%- include('partials/footer', { type: 'index' }) %>
   </body>
 </html>

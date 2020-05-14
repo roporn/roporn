@@ -1,4 +1,3 @@
-<% if(!locals.isAmp) { %>
   <script defer async src="/js/app.js"></script>
   
   
@@ -17,7 +16,7 @@
       m.parentNode.insertBefore(a, m);
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     
-    ga('create', 'UA-162918443-3', 'auto');
+    ga('create', 'UA-162918443-4', 'auto');
     ga('send', 'pageview');
     setTimeout(() => {
       ga('send', 'event', 'Time elapsed', '5 seconds');
@@ -51,20 +50,6 @@
     }, 360000);
   </script>
 </body>
-<% } else { %>
-  <amp-analytics type="gtag" data-credentials="include">
-    <script type="application/json">
-      {
-        "vars": {
-          "gtag_id": "UA-162918443-3",
-          "config": {
-            "UA-162918443-3": { "groups": "default" }
-          }
-        }
-      }
-    </script>
-  </amp-analytics>
-<% }  %>
 
 
 

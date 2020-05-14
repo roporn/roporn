@@ -1,31 +1,17 @@
-// const express = require('express');
-// const router = express.Router();
-// const path = require('path');
-// const moment = require('moment');
+const express = require('express');
+const router = express.Router();
+const path = require('path');
 
-// router.get('/*', (req, res, next) => {
-//   let requestedUrl = req.baseUrl + req.path;
+router.get('/*', (req, res, next) => {
+  const videoName = req.path.replace('/', '').replace(/-/g, ' ') + '.mp4';
 
-//   let isAmp = false;
-//   if (requestedUrl.includes('/amp')) {
-//     isAmp = true;
-//     requestedUrl = requestedUrl.replace('/amp', '');
-//   }
+  if (videoName) {
+    res.render('video', { videoName });
+  } else {
+    return res.redirect('/');
+  }
+});
 
-//   const video = getArticleByUrl(requestedUrl);
+function getVideoByUrl() {}
 
-//   if (video) {
-//     if (requestedUrl.includes('/img')) {
-//       const requestedImageName = requestedUrl.substring(requestedUrl.lastIndexOf('/'));
-//       const resolvedFilePath = path.resolve(`./data/videos/${video.id}/img${requestedImageName}`);
-
-//       res.sendFile(resolvedFilePath);
-//     } else {
-//       res.render('video', { video: video, mapBlockToHtml, moment, isAmp });
-//     }
-//   } else {
-//     return res.redirect('/');
-//   }
-// });
-
-// module.exports = router;
+module.exports = router;
