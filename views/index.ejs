@@ -7,7 +7,7 @@
     <%- include('partials/header', { selectedPage: 'Home' }) %>
 
     <div class="videos">
-      <% videos.map(({name, url}, i) => { %>
+      <% videos.sort((a, b) => 0.5 - Math.random()).map(({name, url}, i) => { %>
       <a href="<%= url %>" class="video">
         <div class="video-wrapper">
           <div class="thumbnails">

@@ -15,9 +15,11 @@ function generateThumbnails() {
 
       if (!allThumbnails.includes(x.replace('.mp4', ''))) {
         const stepSize = (duration / 10) * 1000;
+        console.log('Extracting frames for video ' + x);
+
         extractFrames({
           input: './public/video/' + x,
-          output: thumbnailName + '/generated_%i.jpg',
+          output: thumbnailName + '/%i.jpg',
           offsets: [
              10,
              stepSize * 1,
@@ -32,6 +34,8 @@ function generateThumbnails() {
              stepSize * 9.9,
           ],
         });
+        
+        console.log('Extracted.');
       }
     });
   });

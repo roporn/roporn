@@ -7,10 +7,16 @@
     <%- include('partials/header', { selectedPage: 'None', inSearch: true }) %>
 
     <div class="videos">
-      <% videos.map(({name, url}, i) => { %>
+      <% videos.sort((a, b) => 0.5 - Math.random()).map(({name, url}, i) => { %>
       <a href="<%= url %>" class="video">
         <div class="video-wrapper">
-          <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/1.jpg' %>" alt="Article Cover Photo" />
+          <div class="thumbnails">
+            <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/1.jpg' %>" alt="Article Cover Photo" />
+            <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/2.jpg' %>" alt="Article Cover Photo" />
+            <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/3.jpg' %>" alt="Article Cover Photo" />
+            <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/4.jpg' %>" alt="Article Cover Photo" />
+            <img src="<%= 'img/thumbnails/' + name.replace('.mp4', '') + '/5.jpg' %>" alt="Article Cover Photo" />
+          </div>
           <div class="video-info">
             <span class="duration">03:14</span>
             <span class="title"><%= name %></span>
