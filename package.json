@@ -17,7 +17,7 @@
     "ffmpeg-extract-frames": "^2.0.2",
     "get-video-duration": "^3.0.0-beta.1",
     "http-errors": "~1.6.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "morgan": "~1.9.1"
   }
 }
