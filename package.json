@@ -13,7 +13,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "ffmpeg-extract-frames": "^2.0.2",
     "get-video-duration": "^3.0.0-beta.1",
     "http-errors": "~1.6.3",
